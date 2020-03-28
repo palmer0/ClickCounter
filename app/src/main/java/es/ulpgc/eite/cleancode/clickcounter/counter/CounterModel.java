@@ -36,8 +36,9 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public void onDataFromNextScreen(Integer value) {
+  public void onDataFromNextScreen(Integer number) {
     // Log.e(TAG, "onDataFromNextScreen()");
+    numOfClicks=number;
   }
 
   @Override
@@ -53,5 +54,10 @@ public class CounterModel implements CounterContract.Model {
     if(counterVal == 10){
       counterVal=0;
     }
+  }
+
+  @Override
+  public void onResetCounter() {
+    counterVal=0;
   }
 }

@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.counter;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.ClicksToCounterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public interface CounterContract {
@@ -43,13 +44,15 @@ public interface CounterContract {
 
     Integer getStoredCounter();
 
-    void onDataFromNextScreen(Integer value);
+    void onDataFromNextScreen(Integer number);
 
     void onRestartScreen(Integer value);
 
     void onDataFromPreviousScreen(Integer value);
 
     void onIncrementCounter();
+
+    void onResetCounter();
   }
 
   interface Router {
@@ -59,7 +62,7 @@ public interface CounterContract {
 
     //CounterState getStateFromPreviousScreen();
 
-    CounterState getStateFromNextScreen();
+    ClicksToCounterState getStateFromNextScreen();
 
   }
 }

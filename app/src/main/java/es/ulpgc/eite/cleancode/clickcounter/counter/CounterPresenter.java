@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.ClicksToCounterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public class CounterPresenter implements CounterContract.Presenter {
@@ -56,11 +57,11 @@ public class CounterPresenter implements CounterContract.Presenter {
     Log.e(TAG, "onResume()");
 
     // use passed state if is necessary
-    CounterState savedState = router.getStateFromNextScreen();
+    ClicksToCounterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
 
       // update the model
-      model.onDataFromNextScreen(savedState.counterVal);
+      model.onDataFromNextScreen(savedState.numOfClicks);
 
     }
 
@@ -97,19 +98,41 @@ public class CounterPresenter implements CounterContract.Presenter {
 
     state.isClicksEnabled = true;
 
+    //checkStoredCounter();
+    //onResume();
+
+    onStateUpdated();
+  }
+
+  private void onStateUpdated(){
+    checkStoredCounter();
+
+    /*
     if(model.getStoredCounter() == 0){
       state.isResetEnabled =false;
 
     } else{
       state.isResetEnabled =true;
     }
+    */
 
     onResume();
   }
 
+  private void checkStoredCounter() {
+    if(model.getStoredCounter() == 0){
+      state.isResetEnabled =false;
+
+    } else{
+      state.isResetEnabled =true;
+    }
+  }
+
   @Override
   public void onBtnResetClicked() {
+    model.onResetCounter();
 
+    onStateUpdated();
   }
 
   @Override

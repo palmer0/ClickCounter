@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
+import es.ulpgc.eite.cleancode.clickcounter.app.ClicksToCounterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 import es.ulpgc.eite.cleancode.clickcounter.clicks.ClicksActivity;
 
@@ -38,7 +39,7 @@ public class CounterRouter implements CounterContract.Router {
   */
 
   @Override
-  public CounterState getStateFromNextScreen() {
+  public ClicksToCounterState getStateFromNextScreen() {
     return mediator.getCounterNextScreenState();
   }
 }

@@ -37,6 +37,15 @@ public class CounterUnitRobot {
     counterTestCtrl.resume();
   }
 
+  public void finalizamos_pantalla_CLICKS() {
+    clicksTestCtrl.pause().destroy();
+  }
+
+
+  public void pausamos_pantalla_COUNTER() {
+    counterTestCtrl.pause();
+  }
+
   public void texto_en_COUNTER_muestra(int numero) {
     CounterActivity activity = counterTestCtrl.get();
 
@@ -106,6 +115,14 @@ public class CounterUnitRobot {
     ClicksActivity activity = clicksTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnClear);
+    btn.performClick();
+  }
+
+
+  public void hacemos_clic_en_botón_RESET() {
+    CounterActivity activity = counterTestCtrl.get();
+
+    Button btn = activity.findViewById(R.id.btnReset);
     btn.performClick();
   }
 
