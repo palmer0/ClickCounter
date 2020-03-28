@@ -65,7 +65,7 @@ public class CounterPresenter implements CounterContract.Presenter {
     }
 
     // call the model and update the state
-    state.counterVal = model.getStoredValue();
+    state.counterVal = model.getStoredCounter();
     state.numOfClicks = model.getStoredClicks();
 
     // update the view
@@ -93,11 +93,11 @@ public class CounterPresenter implements CounterContract.Presenter {
   public void onBtnIncrementClicked() {
     Log.e(TAG, "onBtnIncrementClicked()");
     
-    model.onIncrementValue();
+    model.onIncrementCounter();
 
     state.isClicksEnabled = true;
 
-    if(model.getStoredValue() == 0){
+    if(model.getStoredCounter() == 0){
       state.isResetEnabled =false;
 
     } else{

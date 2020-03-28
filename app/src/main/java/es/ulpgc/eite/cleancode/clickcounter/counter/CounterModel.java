@@ -25,8 +25,8 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public Integer getStoredValue() {
-    // Log.e(TAG, "getStoredValue()");
+  public Integer getStoredCounter() {
+    // Log.e(TAG, "getStoredCounter()");
     return counterVal;
   }
 
@@ -46,7 +46,7 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public void onIncrementValue() {
+  public void onIncrementCounter() {
     counterVal++;
     numOfClicks++;
 

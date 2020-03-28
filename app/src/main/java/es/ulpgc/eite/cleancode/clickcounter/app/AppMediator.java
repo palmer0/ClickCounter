@@ -11,6 +11,8 @@ public class AppMediator extends Application {
   private ClicksState clicksState;
 
   private CounterToClicksState counterToClicksState;
+  private ClicksToCounterState clicksToCounterState;
+
 
   @Override
   public void onCreate() {
@@ -50,5 +52,9 @@ public class AppMediator extends Application {
 
   public void setCounterNextScreenState(CounterToClicksState state) {
     counterToClicksState=state;
+  }
+
+  public void setClicksPreviousScreenState(ClicksToCounterState state) {
+    clicksToCounterState=state;
   }
 }

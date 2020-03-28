@@ -11,8 +11,8 @@ public class ClicksModel implements ClicksContract.Model {
   }
 
   @Override
-  public Integer getStoredData() {
-    // Log.e(TAG, "getStoredValue()");
+  public Integer getStoredClicks() {
+    // Log.e(TAG, "getStoredCounter()");
     return numOfClicks;
   }
 
@@ -30,5 +30,10 @@ public class ClicksModel implements ClicksContract.Model {
   public void onDataFromPreviousScreen(Integer number) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
     numOfClicks=number;
+  }
+
+  @Override
+  public void onClearClicks() {
+    numOfClicks=0;
   }
 }

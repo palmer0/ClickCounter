@@ -25,11 +25,16 @@ public class CounterUnitRobot {
     counterTestCtrl.create().resume().visible();
   }
 
+
   public void iniciamos_pantalla_CLICKS() {
     clicksTestCtrl = Robolectric.buildActivity(ClicksActivity.class);
     //Context ctx = clicksTestCtrl.get();
 
     clicksTestCtrl.create().resume().visible();
+  }
+
+  public void resumimos_pantalla_COUNTER() {
+    counterTestCtrl.resume();
   }
 
   public void texto_en_COUNTER_muestra(int numero) {
@@ -75,7 +80,6 @@ public class CounterUnitRobot {
     
   }
 
-
   public void botón_CLEAR_se_encuentra(boolean activado) {
     ClicksActivity activity = clicksTestCtrl.get();
 
@@ -94,6 +98,14 @@ public class CounterUnitRobot {
     CounterActivity activity = counterTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnClicks);
+    btn.performClick();
+  }
+
+
+  public void hacemos_clic_en_botón_CLEAR() {
+    ClicksActivity activity = clicksTestCtrl.get();
+
+    Button btn = activity.findViewById(R.id.btnClear);
     btn.performClick();
   }
 

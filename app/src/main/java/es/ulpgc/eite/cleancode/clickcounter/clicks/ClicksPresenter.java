@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.ClicksToCounterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public class ClicksPresenter implements ClicksContract.Presenter {
@@ -27,6 +28,8 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     if (state == null) {
       state = new ClicksState();
     }
+
+    state.isClearEnabled=true;
 
     // use passed state if is necessary
     CounterToClicksState savedState = router.getStateFromPreviousScreen();
@@ -60,7 +63,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     */
 
     // call the model and set view state
-    state.numOfClicks = model.getStoredData();
+    state.numOfClicks = model.getStoredClicks();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -70,6 +73,10 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   @Override
   public void onBackPressed() {
     Log.e(TAG, "onBackPressed()");
+
+    router.passStateToPreviousScreen(
+        new ClicksToCounterState(model.getStoredClicks())
+    );
   }
 
   @Override
@@ -85,6 +92,18 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   @Override
   public void onBtnClearClicked() {
     Log.e(TAG, "onBtnClearClicked()");
+
+    model.onClearClicks();
+
+
+    if(model.getStoredClicks() == 0){
+      state.isClearEnabled =false;
+
+    } else{
+      state.isClearEnabled =true;
+    }
+
+    onResume();
   }
 
   @Override

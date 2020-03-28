@@ -72,6 +72,8 @@ public class ClicksActivity
     // deal with the data
     String numOfClicks= String.valueOf(viewModel.numOfClicks);
     ((TextView) findViewById(R.id.tvClicks)).setText(numOfClicks);
+
+    findViewById(R.id.btnClear).setEnabled(viewModel.isClearEnabled);
   }
 
   @Override

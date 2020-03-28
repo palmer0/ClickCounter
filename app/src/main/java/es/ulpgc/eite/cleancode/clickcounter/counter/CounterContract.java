@@ -41,7 +41,7 @@ public interface CounterContract {
   interface Model {
     Integer getStoredClicks();
 
-    Integer getStoredValue();
+    Integer getStoredCounter();
 
     void onDataFromNextScreen(Integer value);
 
@@ -49,7 +49,7 @@ public interface CounterContract {
 
     void onDataFromPreviousScreen(Integer value);
 
-    void onIncrementValue();
+    void onIncrementCounter();
   }
 
   interface Router {
