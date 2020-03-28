@@ -4,30 +4,31 @@ public class ClicksModel implements ClicksContract.Model {
 
   public static String TAG = ClicksModel.class.getSimpleName();
 
-  private String data;
+  private Integer numOfClicks;
 
-  public ClicksModel(String data) {
-    this.data = data;
+  public ClicksModel() {
+    numOfClicks=0;
   }
 
   @Override
-  public String getStoredData() {
+  public Integer getStoredData() {
     // Log.e(TAG, "getStoredValue()");
-    return data;
+    return numOfClicks;
   }
 
   @Override
-  public void onRestartScreen(String data) {
+  public void onRestartScreen(Integer number) {
     // Log.e(TAG, "onRestartScreen()");
   }
 
   @Override
-  public void onDataFromNextScreen(String data) {
+  public void onDataFromNextScreen(Integer number) {
     // Log.e(TAG, "onDataFromNextScreen()");
   }
 
   @Override
-  public void onDataFromPreviousScreen(String data) {
+  public void onDataFromPreviousScreen(Integer number) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
+    numOfClicks=number;
   }
 }

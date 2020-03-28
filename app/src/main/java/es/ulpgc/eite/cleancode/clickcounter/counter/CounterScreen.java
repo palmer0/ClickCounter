@@ -19,7 +19,7 @@ public class CounterScreen {
 
     CounterContract.Router router = new CounterRouter(mediator);
     CounterContract.Presenter presenter = new CounterPresenter(state);
-    CounterContract.Model model = new CounterModel(0);
+    CounterContract.Model model = new CounterModel();
     presenter.injectModel(model);
     presenter.injectRouter(router);
     presenter.injectView(new WeakReference<>(view));

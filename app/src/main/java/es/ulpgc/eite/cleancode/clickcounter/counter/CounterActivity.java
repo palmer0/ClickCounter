@@ -36,7 +36,7 @@ public class CounterActivity
   protected void onResume() {
     super.onResume();
 
-    // load the counterValue
+    // load the counterVal
     presenter.onResume();
   }
 
@@ -63,15 +63,16 @@ public class CounterActivity
   }
 
   @Override
-  public void onDataUpdated(CounterViewModel vm) {
+  public void onDataUpdated(CounterViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
     // deal with the data
-    ((TextView) findViewById(R.id.tvCounter)).setText("" + vm.counterValue);
+    String counterVal= String.valueOf(viewModel.counterVal);
+    ((TextView) findViewById(R.id.tvCounter)).setText(counterVal);
 
-    findViewById(R.id.btnClicks).setEnabled(vm.isClicksBtnEnabled);
-    findViewById(R.id.btnIncrement).setEnabled(vm.isIncrBtnEnabled);
-    findViewById(R.id.btnReset).setEnabled(vm.isResetBtnEnabled);
+    findViewById(R.id.btnClicks).setEnabled(viewModel.isClicksEnabled);
+    findViewById(R.id.btnIncrement).setEnabled(viewModel.isIncrEnabled);
+    findViewById(R.id.btnReset).setEnabled(viewModel.isResetEnabled);
   }
 
 

@@ -10,6 +10,8 @@ public class AppMediator extends Application {
   private CounterState counterState;
   private ClicksState clicksState;
 
+  private CounterToClicksState counterToClicksState;
+
   @Override
   public void onCreate() {
     super.onCreate();
@@ -26,8 +28,8 @@ public class AppMediator extends Application {
     return clicksState;
   }
 
-  public ClicksState getClicksPreviousScreenState() {
-    return null;
+  public CounterToClicksState getClicksPreviousScreenState() {
+    return counterToClicksState;
   }
 
   public ClicksState getClicksNextScreenState() {
@@ -46,7 +48,7 @@ public class AppMediator extends Application {
     return null;
   }
 
-  public void setCounterNextScreenState(CounterState state) {
-
+  public void setCounterNextScreenState(CounterToClicksState state) {
+    counterToClicksState=state;
   }
 }

@@ -4,7 +4,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.clickcounter.R;
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 
 public class ClicksScreen {
@@ -14,14 +13,12 @@ public class ClicksScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
-    String data = context.get().getString(R.string.app_name);
-
     AppMediator mediator = (AppMediator) context.get().getApplication();
     ClicksState state = mediator.getClicksState();
 
     ClicksContract.Router router = new ClicksRouter(mediator);
     ClicksContract.Presenter presenter = new ClicksPresenter(state);
-    ClicksContract.Model model = new ClicksModel(data);
+    ClicksContract.Model model = new ClicksModel();
     presenter.injectModel(model);
     presenter.injectRouter(router);
     presenter.injectView(new WeakReference<>(view));

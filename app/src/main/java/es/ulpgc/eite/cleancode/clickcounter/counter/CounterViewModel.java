@@ -3,9 +3,9 @@ package es.ulpgc.eite.cleancode.clickcounter.counter;
 public class CounterViewModel {
 
   // put the view state here
-  public Integer counterValue;
+  public Integer counterVal;
 
-  public Boolean isIncrBtnEnabled;
-  public Boolean isResetBtnEnabled;
-  public Boolean isClicksBtnEnabled;
+  public Boolean isIncrEnabled;
+  public Boolean isResetEnabled;
+  public Boolean isClicksEnabled;
 }

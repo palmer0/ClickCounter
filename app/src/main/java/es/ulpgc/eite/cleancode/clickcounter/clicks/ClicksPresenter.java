@@ -1,6 +1,10 @@
 package es.ulpgc.eite.cleancode.clickcounter.clicks;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public class ClicksPresenter implements ClicksContract.Presenter {
 
@@ -17,7 +21,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
 
   @Override
   public void onStart() {
-    // Log.e(TAG, "onStart()");
+    Log.e(TAG, "onStart()");
 
     // initialize the state if is necessary
     if (state == null) {
@@ -25,25 +29,25 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     }
 
     // use passed state if is necessary
-    ClicksState savedState = router.getStateFromPreviousScreen();
+    CounterToClicksState savedState = router.getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.data);
+      model.onDataFromPreviousScreen(savedState.numOfClicks);
     }
   }
 
   @Override
   public void onRestart() {
-    // Log.e(TAG, "onRestart()");
+    Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.data);
+    model.onRestartScreen(state.numOfClicks);
   }
 
   @Override
   public void onResume() {
-    // Log.e(TAG, "onResume()");
+    Log.e(TAG, "onResume()");
 
     /*
     // use passed state if is necessary
@@ -51,12 +55,12 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     if (savedState != null) {
 
       // update the model
-      model.onDataFromNextScreen(savedState.counterValue);
+      model.onDataFromNextScreen(savedState.counterVal);
     }
     */
 
     // call the model and set view state
-    state.data = model.getStoredData();
+    state.numOfClicks = model.getStoredData();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -65,17 +69,22 @@ public class ClicksPresenter implements ClicksContract.Presenter {
 
   @Override
   public void onBackPressed() {
-    // Log.e(TAG, "onBackPressed()");
+    Log.e(TAG, "onBackPressed()");
   }
 
   @Override
   public void onPause() {
-    // Log.e(TAG, "onPause()");
+    Log.e(TAG, "onPause()");
   }
 
   @Override
   public void onDestroy() {
-    // Log.e(TAG, "onDestroy()");
+    Log.e(TAG, "onDestroy()");
+  }
+
+  @Override
+  public void onBtnClearClicked() {
+    Log.e(TAG, "onBtnClearClicked()");
   }
 
   @Override

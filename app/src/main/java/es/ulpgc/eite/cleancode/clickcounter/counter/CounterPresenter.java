@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
+
 public class CounterPresenter implements CounterContract.Presenter {
 
   public static String TAG = CounterPresenter.class.getSimpleName();
@@ -32,13 +34,13 @@ public class CounterPresenter implements CounterContract.Presenter {
     if (savedState != null) {
 
       // update the model
-      model.onDataFromPreviousScreen(savedState.counterValue);
+      model.onDataFromPreviousScreen(savedState.counterVal);
     }
     */
 
-    state.isIncrBtnEnabled = true;
-    state.isClicksBtnEnabled = false;
-    state.isResetBtnEnabled=false;
+    state.isIncrEnabled = true;
+    state.isClicksEnabled = false;
+    state.isResetEnabled =false;
   }
 
   @Override
@@ -46,7 +48,7 @@ public class CounterPresenter implements CounterContract.Presenter {
     Log.e(TAG, "onRestart()");
 
     // update the model
-    model.onRestartScreen(state.counterValue);
+    model.onRestartScreen(state.counterVal);
   }
 
   @Override
@@ -58,12 +60,13 @@ public class CounterPresenter implements CounterContract.Presenter {
     if (savedState != null) {
 
       // update the model
-      model.onDataFromNextScreen(savedState.counterValue);
+      model.onDataFromNextScreen(savedState.counterVal);
 
     }
 
-    // call the model and set view state
-    state.counterValue = model.getStoredValue();
+    // call the model and update the state
+    state.counterVal = model.getStoredValue();
+    state.numOfClicks = model.getStoredClicks();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -92,8 +95,14 @@ public class CounterPresenter implements CounterContract.Presenter {
     
     model.onIncrementValue();
 
-    state.isClicksBtnEnabled = true;
-    state.isResetBtnEnabled=true;
+    state.isClicksEnabled = true;
+
+    if(model.getStoredValue() == 0){
+      state.isResetEnabled =false;
+
+    } else{
+      state.isResetEnabled =true;
+    }
 
     onResume();
   }
@@ -105,7 +114,10 @@ public class CounterPresenter implements CounterContract.Presenter {
 
   @Override
   public void onBtnClicksClicked() {
-
+    router.passStateToNextScreen(
+        new CounterToClicksState(model.getStoredClicks())
+    );
+    router.navigateToNextScreen();
   }
 
   @Override

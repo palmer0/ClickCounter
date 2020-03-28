@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.clicks;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public class ClicksRouter implements ClicksContract.Router {
 
@@ -32,7 +33,7 @@ public class ClicksRouter implements ClicksContract.Router {
   */
 
   @Override
-  public ClicksState getStateFromPreviousScreen() {
+  public CounterToClicksState getStateFromPreviousScreen() {
     return mediator.getClicksPreviousScreenState();
   }
 

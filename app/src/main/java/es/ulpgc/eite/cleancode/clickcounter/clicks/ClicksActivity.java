@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.clicks;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,7 +36,7 @@ public class ClicksActivity
   protected void onResume() {
     super.onResume();
 
-    // load the counterValue
+    // load the counterVal
     presenter.onResume();
   }
 
@@ -60,16 +61,23 @@ public class ClicksActivity
     presenter.onDestroy();
   }
 
+  public void onBtnClearClicked(View view) {
+    presenter.onBtnClearClicked();
+  }
+
   @Override
   public void onDataUpdated(ClicksViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the counterValue
-    ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+    // deal with the data
+    String numOfClicks= String.valueOf(viewModel.numOfClicks);
+    ((TextView) findViewById(R.id.tvClicks)).setText(numOfClicks);
   }
 
   @Override
   public void injectPresenter(ClicksContract.Presenter presenter) {
     this.presenter = presenter;
   }
+
+
 }
