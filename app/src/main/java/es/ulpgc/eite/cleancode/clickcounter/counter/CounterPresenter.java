@@ -62,7 +62,6 @@ public class CounterPresenter implements CounterContract.Presenter {
 
       // update the model
       model.onDataFromNextScreen(savedState.numOfClicks);
-
     }
 
     // call the model and update the state

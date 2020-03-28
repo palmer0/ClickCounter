@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.clickcounter.counter;
+package es.ulpgc.eite.cleancode.clickcounter;
 
 import androidx.test.filters.LargeTest;
 
@@ -95,36 +95,28 @@ public class CounterUnitTests {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
-    // And("texto en COUNTER muestra 0")
-    robot.texto_en_COUNTER_muestra(0);
-    // And("botón INCREMENT se encuentra ACTIVADO")
-    robot.botón_INCREMENT_se_encuentra(true);
-    // And("botón RESET se encuentra DESACTIVADO")
-    robot.botón_RESET_se_encuentra(false);
-    // And("botón CLICKS se encuentra DESACTIVADO")
-    robot.botón_CLICKS_se_encuentra(false);
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
+    // And("hacemos clic en botón INCREMENT")
+    robot.hacemos_clic_en_botón_INCREMENT();
 
-    // When("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón INCREMENT")
-    robot.hacemos_clic_en_botón_INCREMENT();
-    // And("hacemos clic en botón CLICKS")
+    // When("hacemos clic en botón CLICKS")
     robot.hacemos_clic_en_botón_CLICKS();
 
     // Then("pausamos pantalla COUNTER")
@@ -253,7 +245,7 @@ public class CounterUnitTests {
     // When("hacemos clic en botón RESET")
     robot.hacemos_clic_en_botón_RESET();
 
-    // And("texto en COUNTER muestra 0")
+    // Then("texto en COUNTER muestra 0")
     robot.texto_en_COUNTER_muestra(0);
     // And("botón INCREMENT se encuentra ACTIVADO")
     robot.botón_INCREMENT_se_encuentra(true);

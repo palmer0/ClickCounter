@@ -77,11 +77,14 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     router.passStateToPreviousScreen(
         new ClicksToCounterState(model.getStoredClicks())
     );
+
+    //view.get().finish();
   }
 
   @Override
   public void onPause() {
     Log.e(TAG, "onPause()");
+
   }
 
   @Override
@@ -104,6 +107,12 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     }
 
     onResume();
+
+    /*
+    router.passStateToPreviousScreen(
+        new ClicksToCounterState(model.getStoredClicks())
+    );
+    */
   }
 
   @Override

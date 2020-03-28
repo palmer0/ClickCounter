@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.clickcounter.counter;
+package es.ulpgc.eite.cleancode.clickcounter;
 
 import android.widget.Button;
 import android.widget.TextView;
@@ -6,8 +6,8 @@ import android.widget.TextView;
 import org.robolectric.Robolectric;
 import org.robolectric.android.controller.ActivityController;
 
-import es.ulpgc.eite.cleancode.clickcounter.R;
 import es.ulpgc.eite.cleancode.clickcounter.clicks.ClicksActivity;
+import es.ulpgc.eite.cleancode.clickcounter.counter.CounterActivity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -38,7 +38,10 @@ public class CounterUnitRobot {
   }
 
   public void finalizamos_pantalla_CLICKS() {
-    clicksTestCtrl.pause().destroy();
+    ClicksActivity activity = clicksTestCtrl.get();
+    activity.onBackPressed();
+
+    //clicksTestCtrl.pause().destroy();
   }
 
 
