@@ -48,8 +48,10 @@ public class CounterPresenter implements CounterContract.Presenter {
   public void onRestart() {
     Log.e(TAG, "onRestart()");
 
+    Log.e(TAG, "counter: " + state.counterVal);
+
     // update the model
-    model.onRestartScreen(state.counterVal);
+    model.onRestartScreen(state.counterVal, state.numOfClicks);
   }
 
   @Override
@@ -60,6 +62,8 @@ public class CounterPresenter implements CounterContract.Presenter {
     ClicksToCounterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
 
+      Log.e(TAG, "clicks: " + savedState.numOfClicks);
+
       // update the model
       model.onDataFromNextScreen(savedState.numOfClicks);
     }
@@ -67,6 +71,9 @@ public class CounterPresenter implements CounterContract.Presenter {
     // call the model and update the state
     state.counterVal = model.getStoredCounter();
     state.numOfClicks = model.getStoredClicks();
+
+    Log.e(TAG, "counter: " + state.counterVal);
+    Log.e(TAG, "clicks: " + state.numOfClicks);
 
     // update the view
     view.get().onDataUpdated(state);

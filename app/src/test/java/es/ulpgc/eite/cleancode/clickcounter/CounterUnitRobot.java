@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -130,4 +131,35 @@ public class CounterUnitRobot {
   }
 
 
+  public void rotamos_pantalla_COUNTER() {
+    Bundle bundle = new Bundle();
+
+    counterTestCtrl
+        .saveInstanceState(bundle)
+        .pause()
+        .stop()
+        .destroy();
+
+    counterTestCtrl = Robolectric.buildActivity(CounterActivity.class)
+        .create(bundle)
+        .restoreInstanceState(bundle)
+        .resume()
+        .visible();
+  }
+
+  public void rotamos_pantalla_CLICKS() {
+    Bundle bundle = new Bundle();
+
+    clicksTestCtrl
+        .saveInstanceState(bundle)
+        .pause()
+        .stop()
+        .destroy();
+
+    clicksTestCtrl = Robolectric.buildActivity(ClicksActivity.class)
+        .create(bundle)
+        .restoreInstanceState(bundle)
+        .resume()
+        .visible();
+  }
 }

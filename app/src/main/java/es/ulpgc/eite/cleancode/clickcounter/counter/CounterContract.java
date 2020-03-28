@@ -46,7 +46,7 @@ public interface CounterContract {
 
     void onDataFromNextScreen(Integer number);
 
-    void onRestartScreen(Integer value);
+    void onRestartScreen(Integer value, Integer number);
 
     void onDataFromPreviousScreen(Integer value);
 

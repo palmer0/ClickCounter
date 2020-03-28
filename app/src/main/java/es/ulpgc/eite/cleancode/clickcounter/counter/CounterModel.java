@@ -31,8 +31,10 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public void onRestartScreen(Integer value) {
+  public void onRestartScreen(Integer value, Integer number) {
     // Log.e(TAG, "onRestartScreen()");
+    counterVal=value;
+    numOfClicks=number;
   }
 
   @Override

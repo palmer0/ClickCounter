@@ -19,6 +19,7 @@ public class ClicksModel implements ClicksContract.Model {
   @Override
   public void onRestartScreen(Integer number) {
     // Log.e(TAG, "onRestartScreen()");
+    numOfClicks=number;
   }
 
   @Override

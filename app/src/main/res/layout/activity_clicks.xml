@@ -11,7 +11,7 @@
         android:id="@+id/tvClicks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:text="@string/clicks_value"
         android:textAppearance="@style/TextAppearance.AppCompat.Display4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,7 +12,7 @@ public interface ClicksContract {
 
     void onDataUpdated(ClicksViewModel viewModel);
 
-    void finish();
+    //void finish();
   }
 
   interface Presenter {
