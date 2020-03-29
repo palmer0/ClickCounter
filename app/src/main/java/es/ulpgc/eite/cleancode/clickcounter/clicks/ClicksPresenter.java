@@ -52,16 +52,6 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   public void onResume() {
     Log.e(TAG, "onResume()");
 
-    /*
-    // use passed state if is necessary
-    ClicksState savedState = router.getStateFromNextScreen();
-    if (savedState != null) {
-
-      // update the model
-      model.onDataFromNextScreen(savedState.counterVal);
-    }
-    */
-
     // call the model and set view state
     state.numOfClicks = model.getStoredClicks();
 
@@ -78,7 +68,6 @@ public class ClicksPresenter implements ClicksContract.Presenter {
         new ClicksToCounterState(model.getStoredClicks())
     );
 
-    //view.get().finish();
   }
 
   @Override
@@ -93,8 +82,8 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   }
 
   @Override
-  public void onBtnClearClicked() {
-    Log.e(TAG, "onBtnClearClicked()");
+  public void onClearPressed() {
+    Log.e(TAG, "onClearPressed()");
 
     model.onClearClicks();
 
@@ -107,12 +96,6 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     }
 
     onResume();
-
-    /*
-    router.passStateToPreviousScreen(
-        new ClicksToCounterState(model.getStoredClicks())
-    );
-    */
   }
 
   @Override

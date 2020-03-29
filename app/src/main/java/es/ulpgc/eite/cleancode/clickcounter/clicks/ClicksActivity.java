@@ -61,8 +61,8 @@ public class ClicksActivity
     presenter.onDestroy();
   }
 
-  public void onBtnClearClicked(View view) {
-    presenter.onBtnClearClicked();
+  public void onClearPressed(View view) {
+    presenter.onClearPressed();
   }
 
   @Override

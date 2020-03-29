@@ -29,16 +29,6 @@ public class CounterPresenter implements CounterContract.Presenter {
       state = new CounterState();
     }
 
-    /*
-    // use passed state if is necessary
-    CounterState savedState = router.getStateFromPreviousScreen();
-    if (savedState != null) {
-
-      // update the model
-      model.onDataFromPreviousScreen(savedState.counterVal);
-    }
-    */
-
     state.isIncrEnabled = true;
     state.isClicksEnabled = false;
     state.isResetEnabled =false;
@@ -80,7 +70,6 @@ public class CounterPresenter implements CounterContract.Presenter {
 
   }
 
-
   @Override
   public void onBackPressed() {
     Log.e(TAG, "onBackPressed()");
@@ -97,31 +86,17 @@ public class CounterPresenter implements CounterContract.Presenter {
   }
 
   @Override
-  public void onBtnIncrementClicked() {
-    Log.e(TAG, "onBtnIncrementClicked()");
+  public void onIncrementPressed() {
+    Log.e(TAG, "onIncrementPressed()");
     
     model.onIncrementCounter();
 
     state.isClicksEnabled = true;
-
-    //checkStoredCounter();
-    //onResume();
-
     onStateUpdated();
   }
 
   private void onStateUpdated(){
     checkStoredCounter();
-
-    /*
-    if(model.getStoredCounter() == 0){
-      state.isResetEnabled =false;
-
-    } else{
-      state.isResetEnabled =true;
-    }
-    */
-
     onResume();
   }
 
@@ -135,17 +110,22 @@ public class CounterPresenter implements CounterContract.Presenter {
   }
 
   @Override
-  public void onBtnResetClicked() {
+  public void onResetPressed() {
+    Log.e(TAG, "onResetPressed()");
+
     model.onResetCounter();
 
     onStateUpdated();
   }
 
   @Override
-  public void onBtnClicksClicked() {
+  public void onClicksPressed() {
+    Log.e(TAG, "onClicksPressed()");
+
     router.passStateToNextScreen(
         new CounterToClicksState(model.getStoredClicks())
     );
+
     router.navigateToNextScreen();
   }
 

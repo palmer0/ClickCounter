@@ -30,12 +30,6 @@ public class AppMediator extends Application {
     return clicksState;
   }
 
-  /*
-  public CounterToClicksState getClicksPreviousScreenState() {
-    return counterToClicksState;
-  }
-  */
-
   public CounterToClicksState getClicksPreviousScreenState() {
     CounterToClicksState state = counterToClicksState;
     counterToClicksState = null;
@@ -46,31 +40,11 @@ public class AppMediator extends Application {
     counterToClicksState=state;
   }
 
-  /*
-  public ClicksState getClicksNextScreenState() {
-    return null;
-  }
-
-  public void setClicksNextScreenState(ClicksState state) {
-
-  }
-
-  public CounterState getCounterPreviousScreenState() {
-    return null;
-  }
-  */
-
   public ClicksToCounterState getCounterNextScreenState() {
     ClicksToCounterState state = clicksToCounterState;
     clicksToCounterState = null;
     return state;
   }
-
-  /*
-  public ClicksToCounterState getCounterNextScreenState() {
-    return clicksToCounterState;
-  }
-  */
 
   public void setClicksPreviousScreenState(ClicksToCounterState state) {
     clicksToCounterState=state;

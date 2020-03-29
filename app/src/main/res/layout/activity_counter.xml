@@ -31,21 +31,21 @@
             android:id="@+id/btnIncrement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onBtnIncrementClicked"
+            android:onClick="onIncrementPressed"
             android:text="@string/increment_button" />
 
         <Button
             android:id="@+id/btnReset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onBtnResetClicked"
+            android:onClick="onResetPressed"
             android:text="@string/reset_button" />
 
         <Button
             android:id="@+id/btnClicks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onBtnClicksClicked"
+            android:onClick="onClicksPressed"
             android:text="@string/clicks_button" />
     </LinearLayout>
 

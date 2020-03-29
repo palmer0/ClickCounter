@@ -12,12 +12,6 @@ public class CounterModel implements CounterContract.Model {
     numOfClicks=0;
   }
 
-  /*
-  public CounterModel(Integer value) {
-    counterVal = value;
-  }
-  */
-
   @Override
   public Integer getStoredClicks() {
     // Log.e(TAG, "getStoredClicks()");
@@ -41,11 +35,6 @@ public class CounterModel implements CounterContract.Model {
   public void onDataFromNextScreen(Integer number) {
     // Log.e(TAG, "onDataFromNextScreen()");
     numOfClicks=number;
-  }
-
-  @Override
-  public void onDataFromPreviousScreen(Integer value) {
-    // Log.e(TAG, "onDataFromPreviousScreen()");
   }
 
   @Override

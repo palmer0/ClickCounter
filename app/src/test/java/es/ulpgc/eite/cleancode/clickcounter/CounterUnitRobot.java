@@ -21,16 +21,12 @@ public class CounterUnitRobot {
 
   public void iniciamos_pantalla_COUNTER() {
     counterTestCtrl = Robolectric.buildActivity(CounterActivity.class);
-    //Context ctx = counterTestCtrl.get();
-
     counterTestCtrl.create().resume().visible();
   }
 
 
   public void iniciamos_pantalla_CLICKS() {
     clicksTestCtrl = Robolectric.buildActivity(ClicksActivity.class);
-    //Context ctx = clicksTestCtrl.get();
-
     clicksTestCtrl.create().resume().visible();
   }
 
@@ -42,7 +38,6 @@ public class CounterUnitRobot {
     ClicksActivity activity = clicksTestCtrl.get();
     activity.onBackPressed();
 
-    //clicksTestCtrl.pause().destroy();
   }
 
 
@@ -162,4 +157,5 @@ public class CounterUnitRobot {
         .resume()
         .visible();
   }
+
 }

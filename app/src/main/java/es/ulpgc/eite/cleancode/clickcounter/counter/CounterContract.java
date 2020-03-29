@@ -15,53 +15,32 @@ public interface CounterContract {
 
   interface Presenter {
     void injectView(WeakReference<View> view);
-
     void injectModel(Model model);
-
     void injectRouter(Router router);
 
     void onResume();
-
     void onStart();
-
     void onRestart();
-
     void onBackPressed();
-
     void onPause();
-
     void onDestroy();
-
-    void onBtnIncrementClicked();
-
-    void onBtnResetClicked();
-
-    void onBtnClicksClicked();
+    void onIncrementPressed();
+    void onResetPressed();
+    void onClicksPressed();
   }
 
   interface Model {
     Integer getStoredClicks();
-
     Integer getStoredCounter();
-
     void onDataFromNextScreen(Integer number);
-
     void onRestartScreen(Integer value, Integer number);
-
-    void onDataFromPreviousScreen(Integer value);
-
     void onIncrementCounter();
-
     void onResetCounter();
   }
 
   interface Router {
     void navigateToNextScreen();
-
     void passStateToNextScreen(CounterToClicksState state);
-
-    //CounterState getStateFromPreviousScreen();
-
     ClicksToCounterState getStateFromNextScreen();
 
   }

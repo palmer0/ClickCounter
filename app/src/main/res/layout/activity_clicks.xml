@@ -31,7 +31,7 @@
             android:id="@+id/btnClear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onBtnClearClicked"
+            android:onClick="onClearPressed"
             android:text="@string/clear_button" />
 
 

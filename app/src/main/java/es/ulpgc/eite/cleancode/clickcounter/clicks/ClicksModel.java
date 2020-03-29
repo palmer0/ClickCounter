@@ -23,11 +23,6 @@ public class ClicksModel implements ClicksContract.Model {
   }
 
   @Override
-  public void onDataFromNextScreen(Integer number) {
-    // Log.e(TAG, "onDataFromNextScreen()");
-  }
-
-  @Override
   public void onDataFromPreviousScreen(Integer number) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
     numOfClicks=number;

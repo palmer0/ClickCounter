@@ -76,16 +76,16 @@ public class CounterActivity
   }
 
 
-  public void onBtnIncrementClicked(View view) {
-    presenter.onBtnIncrementClicked();
+  public void onIncrementPressed(View view) {
+    presenter.onIncrementPressed();
   }
 
-  public void onBtnResetClicked(View view) {
-    presenter.onBtnResetClicked();
+  public void onResetPressed(View view) {
+    presenter.onResetPressed();
   }
 
-  public void onBtnClicksClicked(View view) {
-    presenter.onBtnClicksClicked();
+  public void onClicksPressed(View view) {
+    presenter.onClicksPressed();
   }
 
   @Override
