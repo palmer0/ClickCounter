@@ -12,6 +12,7 @@ import es.ulpgc.eite.cleancode.clickcounter.clicks.ClicksActivity;
 import es.ulpgc.eite.cleancode.clickcounter.counter.CounterActivity;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -39,17 +40,38 @@ public class CounterInstrumentedRobot {
 
 
   public void iniciamos_pantalla_CLICKS() {
-    clicksTestRule.launchActivity(null);
+    //clicksTestRule.launchActivity(null);
 
+    try {
+      Thread.sleep(700);
+    } catch (InterruptedException e) {
+
+    }
   }
 
   public void resumimos_pantalla_COUNTER() {
     //counterTestRule.finishActivity();
     //counterTestRule.launchActivity(null);
+
+    /*
+    try {
+      Thread.sleep(700);
+    } catch (InterruptedException e) {
+
+    }
+    */
   }
 
   public void finalizamos_pantalla_CLICKS() {
-    clicksTestRule.finishActivity();
+    //clicksTestRule.finishActivity();
+    pressBack();
+
+    try {
+      Thread.sleep(700);
+    } catch (InterruptedException e) {
+
+    }
+
 
   }
 
@@ -174,9 +196,32 @@ public class CounterInstrumentedRobot {
     } else {
       activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
+
+    try {
+      Thread.sleep(700);
+    } catch (InterruptedException e) {
+
+    }
+
   }
 
   public void rotamos_pantalla_CLICKS() {
+    /*
+    Context context = ApplicationProvider.getApplicationContext();
+    int orientation = context.getResources().getConfiguration().orientation;
+    Activity activity = clicksTestRule.getActivity();
 
+    if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    } else {
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    try {
+      Thread.sleep(700);
+    } catch (InterruptedException e) {
+
+    }
+    */
   }
 }

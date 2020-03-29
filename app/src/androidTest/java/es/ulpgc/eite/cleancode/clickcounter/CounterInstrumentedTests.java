@@ -62,6 +62,7 @@ public class CounterInstrumentedTests {
     // When("rotamos pantalla COUNTER")
     robot.rotamos_pantalla_COUNTER();
 
+
     // Then("texto en COUNTER muestra 1")
     robot.texto_en_COUNTER_muestra(1);
     // And("botón INCREMENT se encuentra ACTIVADO")
@@ -121,7 +122,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_10_veces_rotando_pantalla() {
+  public void pulsar_boton_10_veces_rotando_pantalla()  {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -156,6 +157,7 @@ public class CounterInstrumentedTests {
 
     // When("rotamos pantalla COUNTER")
     robot.rotamos_pantalla_COUNTER();
+
 
     // Then("texto en COUNTER muestra 0")
     robot.texto_en_COUNTER_muestra(0);
@@ -660,4 +662,5 @@ public class CounterInstrumentedTests {
     // And("botón CLEAR se encuentra ACTIVADO")
     robot.botón_CLEAR_se_encuentra(true);
   }
+
 }
