@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.clickcounter.counter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.clickcounter.R;
+import es.ulpgc.eite.cleancode.clickcounter.clicks.ClicksActivity;
 
 public class CounterActivity
     extends AppCompatActivity implements CounterContract.View {
@@ -61,6 +63,14 @@ public class CounterActivity
 
     presenter.onDestroy();
   }
+
+  @Override
+  public void navigateToNextScreen() {
+    Intent intent = new Intent(this, ClicksActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
+  }
+
 
   @Override
   public void onDataUpdated(CounterViewModel viewModel) {

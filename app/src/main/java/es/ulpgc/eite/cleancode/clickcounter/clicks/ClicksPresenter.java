@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.app.ClicksToCounterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
@@ -14,11 +15,17 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   private WeakReference<ClicksContract.View> view;
   private ClicksState state;
   private ClicksContract.Model model;
-  private ClicksContract.Router router;
+  //private ClicksContract.Router router;
+  private AppMediator mediator;
 
-  public ClicksPresenter(ClicksState state) {
-    this.state = state;
+  public ClicksPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getClicksState();
   }
+
+//  public ClicksPresenter(ClicksState state) {
+//    this.state = state;
+//  }
 
   @Override
   public void onStart() {
@@ -32,7 +39,8 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     state.isClearEnabled=true;
 
     // use passed state if is necessary
-    CounterToClicksState savedState = router.getStateFromPreviousScreen();
+    CounterToClicksState savedState = getStateFromPreviousScreen();
+    //CounterToClicksState savedState = router.getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
@@ -64,10 +72,11 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   public void onBackPressed() {
     Log.e(TAG, "onBackPressed()");
 
-    router.passStateToPreviousScreen(
-        new ClicksToCounterState(model.getStoredClicks())
-    );
+//    router.passStateToPreviousScreen(
+//        new ClicksToCounterState(model.getStoredClicks())
+//    );
 
+    passStateToPreviousScreen(new ClicksToCounterState(model.getStoredClicks()));
   }
 
   @Override
@@ -98,6 +107,14 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     onResume();
   }
 
+  private CounterToClicksState getStateFromPreviousScreen() {
+    return mediator.getClicksPreviousScreenState();
+  }
+
+  private void passStateToPreviousScreen(ClicksToCounterState state) {
+    mediator.setClicksPreviousScreenState(state);
+  }
+
   @Override
   public void injectView(WeakReference<ClicksContract.View> view) {
     this.view = view;
@@ -108,8 +125,8 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void injectRouter(ClicksContract.Router router) {
-    this.router = router;
-  }
+//  @Override
+//  public void injectRouter(ClicksContract.Router router) {
+//    this.router = router;
+//  }
 }

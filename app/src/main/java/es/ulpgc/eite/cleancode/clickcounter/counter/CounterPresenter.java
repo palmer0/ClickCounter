@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.app.ClicksToCounterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
@@ -14,11 +15,17 @@ public class CounterPresenter implements CounterContract.Presenter {
   private WeakReference<CounterContract.View> view;
   private CounterState state;
   private CounterContract.Model model;
-  private CounterContract.Router router;
+  //private CounterContract.Router router;
+  private AppMediator mediator;
 
-  public CounterPresenter(CounterState state) {
-    this.state = state;
+  public CounterPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getCounterState();
   }
+
+//  public CounterPresenter(CounterState state) {
+//    this.state = state;
+//  }
 
   @Override
   public void onStart() {
@@ -49,7 +56,8 @@ public class CounterPresenter implements CounterContract.Presenter {
     Log.e(TAG, "onResume()");
 
     // use passed state if is necessary
-    ClicksToCounterState savedState = router.getStateFromNextScreen();
+    ClicksToCounterState savedState = getStateFromNextScreen();
+    //ClicksToCounterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
 
       Log.e(TAG, "clicks: " + savedState.numOfClicks);
@@ -83,6 +91,14 @@ public class CounterPresenter implements CounterContract.Presenter {
   @Override
   public void onDestroy() {
     Log.e(TAG, "onDestroy()");
+  }
+
+  private void passStateToNextScreen(CounterToClicksState state) {
+    mediator.setCounterNextScreenState(state);
+  }
+
+  private ClicksToCounterState getStateFromNextScreen() {
+    return mediator.getCounterNextScreenState();
   }
 
   @Override
@@ -122,11 +138,14 @@ public class CounterPresenter implements CounterContract.Presenter {
   public void onClicksPressed() {
     Log.e(TAG, "onClicksPressed()");
 
-    router.passStateToNextScreen(
-        new CounterToClicksState(model.getStoredClicks())
-    );
+//    router.passStateToNextScreen(
+//        new CounterToClicksState(model.getStoredClicks())
+//    );
 
-    router.navigateToNextScreen();
+    passStateToNextScreen(new CounterToClicksState(model.getStoredClicks()));
+
+    //router.navigateToNextScreen();
+    view.get().navigateToNextScreen();
   }
 
   @Override
@@ -139,8 +158,8 @@ public class CounterPresenter implements CounterContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void injectRouter(CounterContract.Router router) {
-    this.router = router;
-  }
+//  @Override
+//  public void injectRouter(CounterContract.Router router) {
+//    this.router = router;
+//  }
 }
