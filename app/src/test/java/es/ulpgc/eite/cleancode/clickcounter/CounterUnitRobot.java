@@ -64,7 +64,7 @@ public class CounterUnitRobot {
   }
 
 
-  public void botón_INCREMENT_se_encuentra(boolean activado) {
+  public void boton_INCREMENT_se_encuentra(boolean activado) {
 
     CounterActivity activity = counterTestCtrl.get();
 
@@ -72,7 +72,7 @@ public class CounterUnitRobot {
     assertThat(btn.isEnabled(), equalTo(activado));
   }
 
-  public void botón_RESET_se_encuentra(boolean activado) {
+  public void boton_RESET_se_encuentra(boolean activado) {
     CounterActivity activity = counterTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnReset);
@@ -80,7 +80,7 @@ public class CounterUnitRobot {
     
   }
 
-  public void botón_CLICKS_se_encuentra(boolean activado) {
+  public void boton_CLICKS_se_encuentra(boolean activado) {
     CounterActivity activity = counterTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnClicks);
@@ -88,21 +88,21 @@ public class CounterUnitRobot {
     
   }
 
-  public void botón_CLEAR_se_encuentra(boolean activado) {
+  public void boton_CLEAR_se_encuentra(boolean activado) {
     ClicksActivity activity = clicksTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnClear);
     assertThat(btn.isEnabled(), equalTo(activado));
   }
 
-  public void hacemos_clic_en_botón_INCREMENT() {
+  public void hacemos_clic_en_boton_INCREMENT() {
     CounterActivity activity = counterTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnIncrement);
     btn.performClick();
   }
 
-  public void hacemos_clic_en_botón_CLICKS() {
+  public void hacemos_clic_en_boton_CLICKS() {
     CounterActivity activity = counterTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnClicks);
@@ -110,7 +110,7 @@ public class CounterUnitRobot {
   }
 
 
-  public void hacemos_clic_en_botón_CLEAR() {
+  public void hacemos_clic_en_boton_CLEAR() {
     ClicksActivity activity = clicksTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnClear);
@@ -118,7 +118,7 @@ public class CounterUnitRobot {
   }
 
 
-  public void hacemos_clic_en_botón_RESET() {
+  public void hacemos_clic_en_boton_RESET() {
     CounterActivity activity = counterTestCtrl.get();
 
     Button btn = activity.findViewById(R.id.btnReset);

@@ -92,49 +92,49 @@ public class CounterInstrumentedRobot {
   }
 
 
-  public void botón_INCREMENT_se_encuentra(boolean activado) {
+  public void boton_INCREMENT_se_encuentra(boolean activado) {
 
     onView(withId(R.id.btnIncrement))
         .check(matches(isDisplayed()))
         .check(matches(activado ? isEnabled() : not(isEnabled())));
   }
 
-  public void botón_RESET_se_encuentra(boolean activado) {
+  public void boton_RESET_se_encuentra(boolean activado) {
 
     onView(withId(R.id.btnReset))
         .check(matches(isDisplayed()))
         .check(matches(activado ? isEnabled() : not(isEnabled())));
   }
 
-  public void botón_CLICKS_se_encuentra(boolean activado) {
+  public void boton_CLICKS_se_encuentra(boolean activado) {
 
     onView(withId(R.id.btnClicks))
         .check(matches(isDisplayed()))
         .check(matches(activado ? isEnabled() : not(isEnabled())));
   }
 
-  public void botón_CLEAR_se_encuentra(boolean activado) {
+  public void boton_CLEAR_se_encuentra(boolean activado) {
 
     onView(withId(R.id.btnClear))
         .check(matches(isDisplayed()))
         .check(matches(activado ? isEnabled() : not(isEnabled())));
   }
 
-  public void hacemos_clic_en_botón_INCREMENT() {
+  public void hacemos_clic_en_boton_INCREMENT() {
     onView(withId(R.id.btnIncrement)).perform(click());
   }
 
-  public void hacemos_clic_en_botón_CLICKS() {
+  public void hacemos_clic_en_boton_CLICKS() {
     onView(withId(R.id.btnClicks)).perform(click());
   }
 
 
-  public void hacemos_clic_en_botón_CLEAR() {
+  public void hacemos_clic_en_boton_CLEAR() {
     onView(withId(R.id.btnClear)).perform(click());
   }
 
 
-  public void hacemos_clic_en_botón_RESET() {
+  public void hacemos_clic_en_boton_RESET() {
     onView(withId(R.id.btnReset)).perform(click());
   }
 
