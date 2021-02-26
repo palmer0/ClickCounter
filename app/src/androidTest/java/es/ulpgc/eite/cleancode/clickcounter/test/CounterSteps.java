@@ -255,8 +255,6 @@ public class CounterSteps {
   }
 
 
-
-
   @When("rotamos pantalla COUNTER")
   public void rotamosPantallaCOUNTER() {
     //robot.rotamos_pantalla_COUNTER();

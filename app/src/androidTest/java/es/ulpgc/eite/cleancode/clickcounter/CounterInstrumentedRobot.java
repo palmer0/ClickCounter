@@ -23,14 +23,13 @@ import static org.hamcrest.Matchers.not;
 public class CounterInstrumentedRobot {
 
 
-  private ActivityTestRule<CounterActivity> counterTestRule =
-      new ActivityTestRule<>(
-          CounterActivity.class,false, false);
+  private ActivityTestRule<CounterActivity> testRule =
+      new ActivityTestRule<>(CounterActivity.class,false, false);
 
 
 
   public void iniciamos_pantalla_COUNTER() {
-    counterTestRule.launchActivity(null);
+    testRule.launchActivity(null);
   }
 
 
@@ -142,7 +141,7 @@ public class CounterInstrumentedRobot {
   public void rotamos_pantalla_COUNTER() {
     Context context = ApplicationProvider.getApplicationContext();
     int orientation = context.getResources().getConfiguration().orientation;
-    Activity activity = counterTestRule.getActivity();
+    Activity activity = testRule.getActivity();
 
     if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
       activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
