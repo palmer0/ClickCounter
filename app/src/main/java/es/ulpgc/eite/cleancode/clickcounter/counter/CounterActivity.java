@@ -73,7 +73,7 @@ public class CounterActivity
   @Override
   public void navigateToNextScreen() {
     Intent intent = new Intent(this, ClicksActivity.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
   }
 
