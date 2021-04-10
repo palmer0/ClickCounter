@@ -43,7 +43,6 @@ public class CounterUnitTests {
   }
 
 
-
   @Test
   public void pulsar_boton_10_veces() {
 
