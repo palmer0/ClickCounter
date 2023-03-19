@@ -7,7 +7,7 @@ public interface CounterContract {
   interface View {
     void injectPresenter(Presenter presenter);
 
-    void onDataUpdated(CounterViewModel viewModel);
+    void refreshWithDataUpdated(CounterViewModel viewModel);
     void navigateToNextScreen();
   }
 
@@ -30,8 +30,8 @@ public interface CounterContract {
   interface Model {
     Integer getStoredClicks();
     Integer getStoredCounter();
-    void onDataFromNextScreen(Integer number);
-    void onRestartScreen(Integer value, Integer number);
+    void updateWithDataFromNextScreen(Integer number);
+    void updateOnRestartScreen(Integer value, Integer number);
     void onIncrementCounter();
     void onResetCounter();
   }

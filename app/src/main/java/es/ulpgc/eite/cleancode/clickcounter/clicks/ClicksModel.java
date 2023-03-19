@@ -2,7 +2,8 @@ package es.ulpgc.eite.cleancode.clickcounter.clicks;
 
 public class ClicksModel implements ClicksContract.Model {
 
-  public static String TAG = ClicksModel.class.getSimpleName();
+  //public static String TAG = ClicksModel.class.getSimpleName();
+  public static String TAG = "ClickCounter.ClicksModel";
 
   private Integer numOfClicks;
 
@@ -17,14 +18,14 @@ public class ClicksModel implements ClicksContract.Model {
   }
 
   @Override
-  public void onRestartScreen(Integer number) {
-    // Log.e(TAG, "onRestartScreen()");
+  public void updateOnRestartScreen(Integer number) {
+    // Log.e(TAG, "updateOnRestartScreen()");
     numOfClicks=number;
   }
 
   @Override
-  public void onDataFromPreviousScreen(Integer number) {
-    // Log.e(TAG, "onDataFromPreviousScreen()");
+  public void updateWithDataFromPreviousScreen(Integer number) {
+    // Log.e(TAG, "updateWithDataFromPreviousScreen()");
     numOfClicks=number;
   }
 

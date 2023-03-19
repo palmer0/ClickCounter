@@ -2,7 +2,8 @@ package es.ulpgc.eite.cleancode.clickcounter.counter;
 
 public class CounterModel implements CounterContract.Model {
 
-  public static String TAG = CounterModel.class.getSimpleName();
+  //public static String TAG = CounterModel.class.getSimpleName();
+  public static String TAG = "ClickCounter.CounterModel";
 
   private Integer counterVal;
   private Integer numOfClicks;
@@ -25,15 +26,15 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public void onRestartScreen(Integer value, Integer number) {
-    // Log.e(TAG, "onRestartScreen()");
+  public void updateOnRestartScreen(Integer value, Integer number) {
+    // Log.e(TAG, "updateOnRestartScreen()");
     counterVal=value;
     numOfClicks=number;
   }
 
   @Override
-  public void onDataFromNextScreen(Integer number) {
-    // Log.e(TAG, "onDataFromNextScreen()");
+  public void updateWithDataFromNextScreen(Integer number) {
+    // Log.e(TAG, "updateWithDataFromNextScreen()");
     numOfClicks=number;
   }
 

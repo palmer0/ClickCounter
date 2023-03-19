@@ -3,11 +3,14 @@ package es.ulpgc.eite.cleancode.clickcounter;
 import androidx.test.filters.LargeTest;
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 @RunWith(AndroidJUnit4ClassRunner.class)
 @LargeTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CounterInstrumentedTests {
 
   CounterInstrumentedRobot robot = new CounterInstrumentedRobot();

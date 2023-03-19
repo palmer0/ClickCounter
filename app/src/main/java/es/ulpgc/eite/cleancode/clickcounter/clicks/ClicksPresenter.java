@@ -10,7 +10,8 @@ import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public class ClicksPresenter implements ClicksContract.Presenter {
 
-  public static String TAG = ClicksPresenter.class.getSimpleName();
+  //public static String TAG = ClicksPresenter.class.getSimpleName();
+  public static String TAG = "ClickCounter.ClicksPresenter";
 
   private WeakReference<ClicksContract.View> view;
   private ClicksState state;
@@ -20,7 +21,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
 
   public ClicksPresenter(AppMediator mediator) {
     this.mediator = mediator;
-    state = mediator.getClicksState();
+    //state = mediator.getClicksState();
   }
 
 //  public ClicksPresenter(ClicksState state) {
@@ -31,10 +32,14 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   public void onStart() {
     Log.e(TAG, "onStart()");
 
-    // initialize the state if is necessary
+    // initialize the state
+    state=new ClicksState();
+
+    /*
     if (state == null) {
       state = new ClicksState();
     }
+    */
 
     state.isClearEnabled=true;
 
@@ -44,7 +49,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.numOfClicks);
+      model.updateWithDataFromPreviousScreen(savedState.numOfClicks);
     }
   }
 
@@ -52,8 +57,11 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   public void onRestart() {
     Log.e(TAG, "onRestart()");
 
+    // get back the state
+    state = mediator.getClicksState();
+
     // update the model if is necessary
-    model.onRestartScreen(state.numOfClicks);
+    model.updateOnRestartScreen(state.numOfClicks);
   }
 
   @Override
@@ -64,7 +72,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
     state.numOfClicks = model.getStoredClicks();
 
     // update the view
-    view.get().onDataUpdated(state);
+    view.get().refreshWithDataUpdated(state);
 
   }
 
@@ -83,6 +91,7 @@ public class ClicksPresenter implements ClicksContract.Presenter {
   public void onPause() {
     Log.e(TAG, "onPause()");
 
+    mediator.setClicksState(state);
   }
 
   @Override

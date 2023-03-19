@@ -10,7 +10,8 @@ import es.ulpgc.eite.cleancode.clickcounter.app.CounterToClicksState;
 
 public class CounterPresenter implements CounterContract.Presenter {
 
-  public static String TAG = CounterPresenter.class.getSimpleName();
+  //public static String TAG = CounterPresenter.class.getSimpleName();
+  public static String TAG = "ClickCounter.CounterPresenter";
 
   private WeakReference<CounterContract.View> view;
   private CounterState state;
@@ -20,7 +21,7 @@ public class CounterPresenter implements CounterContract.Presenter {
 
   public CounterPresenter(AppMediator mediator) {
     this.mediator = mediator;
-    state = mediator.getCounterState();
+    //state = mediator.getCounterState();
   }
 
 //  public CounterPresenter(CounterState state) {
@@ -31,10 +32,14 @@ public class CounterPresenter implements CounterContract.Presenter {
   public void onStart() {
     Log.e(TAG, "onStart()");
 
-    // initialize the state if is necessary
+    // initialize the state
+    state = new CounterState();
+
+    /*
     if (state == null) {
       state = new CounterState();
     }
+    */
 
     state.isIncrEnabled = true;
     state.isClicksEnabled = false;
@@ -45,10 +50,13 @@ public class CounterPresenter implements CounterContract.Presenter {
   public void onRestart() {
     Log.e(TAG, "onRestart()");
 
+    // get back the state
+    state = mediator.getCounterState();
+
     Log.e(TAG, "counter: " + state.counterVal);
 
     // update the model
-    model.onRestartScreen(state.counterVal, state.numOfClicks);
+    model.updateOnRestartScreen(state.counterVal, state.numOfClicks);
   }
 
   @Override
@@ -63,7 +71,7 @@ public class CounterPresenter implements CounterContract.Presenter {
       Log.e(TAG, "clicks: " + savedState.numOfClicks);
 
       // update the model
-      model.onDataFromNextScreen(savedState.numOfClicks);
+      model.updateWithDataFromNextScreen(savedState.numOfClicks);
     }
 
     // call the model and update the state
@@ -74,7 +82,7 @@ public class CounterPresenter implements CounterContract.Presenter {
     Log.e(TAG, "clicks: " + state.numOfClicks);
 
     // update the view
-    view.get().onDataUpdated(state);
+    view.get().refreshWithDataUpdated(state);
 
   }
 
@@ -86,6 +94,8 @@ public class CounterPresenter implements CounterContract.Presenter {
   @Override
   public void onPause() {
     Log.e(TAG, "onPause()");
+
+    mediator.setCounterState(state);
   }
 
   @Override

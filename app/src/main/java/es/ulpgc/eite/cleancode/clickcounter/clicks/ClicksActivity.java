@@ -11,7 +11,8 @@ import es.ulpgc.eite.cleancode.clickcounter.R;
 public class ClicksActivity
     extends AppCompatActivity implements ClicksContract.View {
 
-  public static String TAG = ClicksActivity.class.getSimpleName();
+  //public static String TAG = ClicksActivity.class.getSimpleName();
+  public static String TAG = "ClickCounter.ClicksActivity";
 
   private ClicksContract.Presenter presenter;
 
@@ -66,8 +67,8 @@ public class ClicksActivity
   }
 
   @Override
-  public void onDataUpdated(ClicksViewModel viewModel) {
-    //Log.e(TAG, "onDataUpdated()");
+  public void refreshWithDataUpdated(ClicksViewModel viewModel) {
+    //Log.e(TAG, "refreshWithDataUpdated()");
 
     // deal with the data
     String numOfClicks= String.valueOf(viewModel.numOfClicks);
