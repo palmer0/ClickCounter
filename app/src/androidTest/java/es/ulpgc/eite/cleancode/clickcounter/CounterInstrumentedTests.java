@@ -16,7 +16,7 @@ public class CounterInstrumentedTests {
   CounterInstrumentedRobot robot = new CounterInstrumentedRobot();
 
   @Test
-  public void pulsar_boton_1_vez() {
+  public void test01_pulsar_boton_1_vez() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -47,7 +47,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_10_veces() {
+  public void test02_pulsar_boton_10_veces() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -96,7 +96,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_10_veces_y_ver_numero_clicks() {
+  public void test03_pulsar_boton_10_veces_y_ver_numero_clicks() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -137,7 +137,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_11_veces_y_resetear_clicks() {
+  public void test04_pulsar_boton_11_veces_y_resetear_clicks() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -198,7 +198,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_12_veces_y_resetear_contador() {
+  public void test05_pulsar_boton_12_veces_y_resetear_contador() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -263,7 +263,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_13_veces_y_ver_numero_clicks() {
+  public void test06_pulsar_boton_13_veces_y_ver_numero_clicks() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -341,7 +341,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_1_vez_rotando_pantalla() {
+  public void test07_pulsar_boton_1_vez_rotando_pantalla() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -373,7 +373,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_10_veces_rotando_pantalla()  {
+  public void test08_vpulsar_boton_10_veces_rotando_pantalla()  {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -423,7 +423,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_10_veces_y_ver_numero_clicks_rotando_pantalla() {
+  public void test09_pulsar_boton_10_veces_y_ver_numero_clicks_rotando_pantalla() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -468,7 +468,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_11_veces_y_resetear_clicks_rotando_pantalla() {
+  public void test10_pulsar_boton_11_veces_y_resetear_clicks_rotando_pantalla() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -533,7 +533,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_12_veces_y_resetear_contador_rotando_pantalla() {
+  public void test11_pulsar_boton_12_veces_y_resetear_contador_rotando_pantalla() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
@@ -599,7 +599,7 @@ public class CounterInstrumentedTests {
 
 
   @Test
-  public void pulsar_boton_13_veces_y_ver_numero_clicks_rotando_pantalla() {
+  public void test12_pulsar_boton_13_veces_y_ver_numero_clicks_rotando_pantalla() {
 
     // Given("iniciamos pantalla COUNTER")
     robot.iniciamos_pantalla_COUNTER();
