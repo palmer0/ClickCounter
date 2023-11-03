@@ -20,7 +20,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.not;
 
-public class CounterInstrumentedRobot {
+public class CounterEspressoRobot {
 
 
   private ActivityTestRule<CounterActivity> testRule =

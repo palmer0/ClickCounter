@@ -12,9 +12,9 @@ import org.robolectric.RobolectricTestRunner;
 @RunWith(RobolectricTestRunner.class)
 @LargeTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CounterUnitTests {
+public class CounterRobolectricTests {
 
-  CounterUnitRobot robot = new CounterUnitRobot();
+  CounterRobolectricRobot robot = new CounterRobolectricRobot();
 
   @Test
   public void test01_pulsar_boton_1_vez() {

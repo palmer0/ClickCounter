@@ -11,7 +11,7 @@ import org.robolectric.RobolectricTestRunner;
 @LargeTest
 public class CounterPortraitUnitTests {
 
-  CounterUnitRobot robot = new CounterUnitRobot();
+  CounterRobolectricRobot robot = new CounterRobolectricRobot();
 
   @Test
   public void pulsar_boton_1_vez() {

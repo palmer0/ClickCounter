@@ -11,7 +11,7 @@ import org.robolectric.RobolectricTestRunner;
 @LargeTest
 public class CounterLandscapeUnitTests {
 
-  CounterUnitRobot robot = new CounterUnitRobot();
+  CounterRobolectricRobot robot = new CounterRobolectricRobot();
 
 
 

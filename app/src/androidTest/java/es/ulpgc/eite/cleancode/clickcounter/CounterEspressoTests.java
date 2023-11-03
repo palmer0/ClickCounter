@@ -11,9 +11,9 @@ import org.junit.runners.MethodSorters;
 @RunWith(AndroidJUnit4ClassRunner.class)
 @LargeTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CounterInstrumentedTests {
+public class CounterEspressoTests {
 
-  CounterInstrumentedRobot robot = new CounterInstrumentedRobot();
+  CounterEspressoRobot robot = new CounterEspressoRobot();
 
   @Test
   public void test01_pulsar_boton_1_vez() {

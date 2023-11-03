@@ -13,7 +13,7 @@ import es.ulpgc.eite.cleancode.clickcounter.counter.CounterActivity;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CounterUnitRobot {
+public class CounterRobolectricRobot {
 
 
   private ActivityController<CounterActivity> counterTestCtrl;
